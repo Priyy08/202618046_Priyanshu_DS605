@@ -1,3 +1,9 @@
+* **Lab Assignment 1: Data Scraping and Preprocessing**
+* **Name : Madi Priyanshu**
+* **ID: 202618046**
+
+* **Objective** : Build a complete data pipeline by scraping book information from https://books.toscrape.com/, preprocessing and cleaning the dataset, performing feature engineering, creating data visualizations, and setting up an analysis framework.
+
 Key statistical observations done so far:
 * **1st observation** : most selling books are from these 2 categories : Sequential Art with count of 21 books and Nonfiction books with 14 count. least sold books are romance and non fiction both having count of 5.
 * **2nd observation**: Most affordable book starts at price **£10.16** and most expensive book is priced at **£58.11** and the median price of book is **£34.78**.
