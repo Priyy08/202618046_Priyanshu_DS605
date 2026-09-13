@@ -60,3 +60,50 @@ https://priyy08-202618046-priyanshu-ds605-202618046-lab-4app-1scpfr.streamlit.ap
 <p align="center">
   <img src="https://github.com/user-attachments/assets/469f3b05-cff1-42fb-9f70-63b141363220" width="85%">
 </p>
+
+
+## 📈 Final HistGradient Boosting Model Results
+
+### Model Performance
+
+| Metric | Final Result |
+|---|---:|
+| **MAE** | **$45.38** |
+| **RMSE** | **$88.03** |
+| **R² Score** | **0.4446** |
+
+---
+
+## 🔍 Overfitting Analysis
+
+| Metric | Score |
+|---|---:|
+| **Train R²** | **0.6864** |
+| **Test R²** | **0.6518** |
+| **R² Gap** | **0.0346** |
+
+The small **R² gap of 0.0346** between training and testing performance indicates that the final HistGradient Boosting model does not show significant overfitting and generalizes reasonably well to unseen data.
+
+---
+
+## ⚙️ Tuned HistGradient Boosting Performance
+
+### Training Performance
+
+| Metric | Score |
+|---|---:|
+| **MAE** | **0.2750** |
+| **RMSE** | **0.3698** |
+| **R² Score** | **0.6864** |
+
+### Testing Performance
+
+| Metric | Score |
+|---|---:|
+| **MAE** | **0.2939** |
+| **RMSE** | **0.3939** |
+| **R² Score** | **0.6518** |
+
+### 📊 Final Model Summary
+
+The tuned HistGradient Boosting model achieved an **R² score of 0.6518 on the test set**, explaining approximately **65.18% of the variance** in the target variable. The relatively small difference between training R² (**0.6864**) and testing R² (**0.6518**) suggests good generalization with limited overfitting.
