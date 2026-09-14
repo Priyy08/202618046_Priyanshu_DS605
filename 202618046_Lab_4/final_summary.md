@@ -128,3 +128,23 @@ Because HistGradient was identified as the intrinsically superior architecture, 
       'model__min_samples_leaf': 20,
       'model__l2_regularization': 10
   }
+  
+---
+
+## 8. Important Limitations of the Developed System
+
+While the developed system demonstrates strong generalization and competitive out-of-sample accuracy, several critical engineering, domain, and statistical limitations must be addressed before deploying to production:
+
+- **Mathematical Bias (Jensen's Inequality):** The pipeline minimizes squared error in logarithmic space (`log(1+y)`). While this protects against extreme outliers, exponentiating log predictions (`exp(y^) - 1`) estimates the **conditional geometric mean (median)** rather than the **conditional arithmetic mean (`E[Y|X]`)**. Because `exp(E[log Y]) ≤ E[Y]`, predictions suffer from inherent downward bias for higher-priced properties.
+- **Empirical Consequence:** For properties valued between $300 and $1,000 (such as penthouses, luxury lofts, or high-capacity brownstones), the model persistently under-predicts prices (e.g., Listing 5 actual $250 predicted at $111.51; actual $423 predicted at $280.72).
+
+### 8.2. Static Snapshot Blindness & Lack of Dynamic Pricing
+
+- **Absence of Real-Time Demand:** The dataset is a static cross-sectional snapshot of 2019. It contains no awareness of short-term booking velocity, calendar demand spikes, or real-time occupancy rates.
+- **No Calendar Seasonality / Day-of-Week Signal:** Real-world short-term rentals exhibit major surges on weekends (Friday/Saturday nights), summer tourist seasons, holidays (Christmas, New Year's Eve), and city-wide events (UN General Assembly, NYC Marathon). The model produces a single static price year-round.
+- **Regulatory & Inflationary Drift:** Post-2019 market shifts—including high post-pandemic inflation and strict regulatory enforcement (NYC Local Law 18 virtually banning un-hosted short-term rentals in 2023)—render 2019 price baselines non-reflective of current market realities.
+
+### 8.3. Residual Heteroscedasticity (Error Variance Scales with Price)
+
+- **Fanning-Out Residuals:** Residual diagnostic scatter plots reveal significant heteroscedasticity. While predictions for budget rooms ($30–$80) display relatively tight error margins (approximately ±$10–$15), errors fan out dramatically as actual price surpasses $200, frequently generating $100+ residuals.
+- **Single-Model Limitation:** A single global regression model optimizing a symmetric loss cannot simultaneously capture the narrow pricing dynamics of budget hostel beds and the expansive pricing variability of luxury suites.
