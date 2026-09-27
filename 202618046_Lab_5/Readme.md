@@ -11,7 +11,7 @@ This project implements, evaluates, and compares standard machine learning algor
 
 The investigation focuses on the **UCI Productivity Prediction of Garment Employees Dataset**, addressing two real-world operational targets:
 - **Regression Task**: Predict the continuous target `actual_productivity` using Linear Regression.
-- **Classification Task**: Predict the binary target `Meets Target` ($1$ if $\text{actual\_productivity} \ge \text{targeted\_productivity}$, else $0$) using Logistic Regression. In adherence to strict leakage-prevention constraints, `actual_productivity` is never used as an input feature for classification.
+- **Classification Task**: Predict the binary target `Meets Target` (1 if `actual_productivity >= targeted_productivity`, else 0) using Logistic Regression. In adherence to strict leakage-prevention constraints, `actual_productivity` is never used as an input feature for classification.
 
 ---
 
